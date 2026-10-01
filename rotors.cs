@@ -18,7 +18,11 @@ namespace Enigma
             for (int i = 0; i < text.Length; i++)
             {
                 string letter = text[i].ToString();
-                Console.WriteLine("harfler tek tek işlenmeye başladı");
+                if (alphabet.IndexOf(letter, StringComparison.Ordinal) == -1)
+                {
+                    continue;
+                }
+                Console.WriteLine("HARF İŞLENMEYE BAŞLADI: " + letter);
                 string processing_char = letter;
                 foreach (Rotor rot in rotors)
                 {
@@ -39,7 +43,7 @@ namespace Enigma
                 returntext += processing_char;
                 Console.WriteLine("işlenen harf sonuç metnine eklendi");
             }
-            return returntext;
+            return "SONUÇ :" + returntext + ": budur";
         }
 
         public void addRotor(string value)
@@ -86,13 +90,13 @@ namespace Enigma
 
         public string rotorProcess(string letter)
         {
-            int index = rotorAlphabet.IndexOf(letter);
+            int index = rotorAlphabet.IndexOf(letter, StringComparison.Ordinal);
             string result = Convert.ToString(CurrentValue[index]);
             return result;
         }
         public string rotorUnprocess(string letter)
         {
-            int index = CurrentValue.IndexOf(letter);
+            int index = CurrentValue.IndexOf(letter, StringComparison.Ordinal);
             string result = Convert.ToString(rotorAlphabet[index]);
             return result;
         }
@@ -121,7 +125,7 @@ namespace Enigma
 
         public string reflectorProcess(string letter)
         {
-            int index = reflector_alphabet.IndexOf(letter);
+            int index = reflector_alphabet.IndexOf(letter, StringComparison.Ordinal);
             return Convert.ToString(reflector_reversed_alphabet[index]);
         }
     }
