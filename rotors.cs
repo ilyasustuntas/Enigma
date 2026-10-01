@@ -10,51 +10,45 @@ namespace Enigma
 
         public string M_rotorProcess(string text)
         {
-            Console.WriteLine("işlem başladı");
             resetAllRotors();
             Reflector reflector = new Reflector(alphabet);
             string returntext = "";
+            text = text.ToUpper();
 
             for (int i = 0; i < text.Length; i++)
             {
                 string letter = text[i].ToString();
-                if (alphabet.IndexOf(letter, StringComparison.Ordinal) == -1)
+                if (alphabet.IndexOf(letter) == -1)
                 {
                     continue;
                 }
-                Console.WriteLine("HARF İŞLENMEYE BAŞLADI: " + letter);
                 string processing_char = letter;
                 foreach (Rotor rot in rotors)
                 {
-                    Console.WriteLine("rotorlardan ilk geçiş sağlandı");
                     processing_char = rot.rotorProcess(processing_char);
                 }
-                Console.WriteLine("reflektörden geçildi");
+
                 processing_char = reflector.reflectorProcess(processing_char);
 
                 for (int b = rotors.Count - 1; b >= 0; b--)
                 {
-                    Console.WriteLine("rotorlar tesine geçiliyor");
                     Rotor rot = rotors[b];
 
                     processing_char = rot.rotorUnprocess(processing_char);
                 }
                 rotateAllRotors();
                 returntext += processing_char;
-                Console.WriteLine("işlenen harf sonuç metnine eklendi");
             }
-            return "SONUÇ :" + returntext + ": budur";
+            return ":" + returntext + ":";
         }
 
         public void addRotor(string value)
         {
             rotors.Add(new Rotor(alphabet, value));
-            Console.WriteLine("rotor eklendi: " + value);
         }
         public void addAlphabet(string Alphabet)
         {
-            alphabet = Alphabet;
-            Console.WriteLine("alfabe eklendi: " + Alphabet);
+            alphabet = Alphabet.ToUpper();
         }
         private void rotateAllRotors()
         {
@@ -69,7 +63,6 @@ namespace Enigma
             {
                 rot.resetRotor();
             }
-            Console.WriteLine("tüm rotorlar sıfırlandı");
         }
     }
 
@@ -113,7 +106,8 @@ namespace Enigma
     }
 
 
-    internal class Reflector
+    internal class Reflector //abcdef   <--- example
+                             //fedcba
     {
         string reflector_alphabet = "";
         string reflector_reversed_alphabet = "";
