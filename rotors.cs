@@ -13,7 +13,6 @@ namespace Enigma
             resetAllRotors();
             Reflector reflector = new Reflector(alphabet);
             string returntext = "";
-            text = text.ToUpper();
 
             for (int i = 0; i < text.Length; i++)
             {
