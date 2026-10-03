@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 
 namespace Enigma
 {
-    public class Rotors
+    internal class Rotors
     {
         private List<Rotor> rotors = new List<Rotor>();
         public string alphabet = "";
