@@ -30,16 +30,17 @@ namespace Enigma
         }
 
 
-        public void addPlug(string l1, string l2)
+        public bool addPlug(string l1, string l2)
         {
             if (!p1.Contains(l1) && !p1.Contains(l2) && !p2.Contains(l1) && !p2.Contains(l2))
             {
                 p1.Add(l1);
                 p2.Add(l2);
+                return true;
             }
             else
             {
-                throw new Exception("Letters are already added");
+                return false;
             }
         }
     }
