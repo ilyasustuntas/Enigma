@@ -38,7 +38,7 @@ namespace Enigma
                 rotateAllRotors();
                 returntext += processing_char;
             }
-            return ":" + returntext + ":";
+            return returntext;
         }
 
         public void addRotor(string value)
@@ -53,7 +53,8 @@ namespace Enigma
         {
             foreach (Rotor rot in rotors)
             {
-                rot.rotate();
+                if (!rot.rotate())
+                    break;
             }
         }
         private void resetAllRotors()
@@ -72,6 +73,7 @@ namespace Enigma
         string rotorAlphabet = "";
         public string value = "";
         public string CurrentValue = "";
+        public int stepsCount = 0;
 
         public Rotor(string alphabet, string Value) // <------- constructor methot
         {
@@ -96,11 +98,19 @@ namespace Enigma
         public void resetRotor()
         {
             CurrentValue = value;
+            stepsCount = 0;
         }
 
-        public void rotate()
+        public bool rotate(int steps = 3)
         {
             CurrentValue = CurrentValue[^1] + CurrentValue[..^1];
+            stepsCount++;
+            if (stepsCount >= steps)
+            {
+                stepsCount = 0;
+                return true;
+            }
+            return false;
         }
     }
 
