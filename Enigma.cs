@@ -15,7 +15,7 @@ public class Enigma
         text = ps.boardProcess(text);
         return text;
     }
-    private void setup()
+    public void setup()
     {
         rs.addAlphabet(default_Alphabet);
         foreach (string rot in Rotors)
