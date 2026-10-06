@@ -5,7 +5,7 @@ public class Enigma
     string default_Alphabet = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜWVXYZ ";
     List<string> Rotors = ["ÇRDMPH ĞCUZEÜXJİIKŞOÖLVNYWAGTSBF", "NKÜYFBXEWLHAVTĞÖJİUZ GÇORPMSIDŞC", "WOISGXUTRAÜVÖĞKZ FMNŞBDYÇİHPCEJL"];
     Rotors rs = new Rotors();
-    Plugborad ps = new Plugborad();
+    PlugBoard ps = new PlugBoard();
     bool isChanged = false;
 
     public Enigma()
@@ -52,7 +52,7 @@ public class Enigma
     }
     public void cleanPlugboard()
     {
-        ps = new Plugborad();
+        ps = new PlugBoard();
     }
     public bool addPlugToBoard(string s1, string s2)
     {

@@ -1,6 +1,6 @@
 namespace Enigma
 {
-    internal class Plugborad
+    internal class PlugBoard
     {
         List<string> p1 = new List<string>();
         List<string> p2 = new List<string>();
