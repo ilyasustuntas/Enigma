@@ -3,7 +3,7 @@ namespace Enigma;
 public class EnigmaMachine
 {
     string default_Alphabet = "ABCÇDEFGĞHIİJKLMNOÖPQRSŞTUÜWVXYZ '";
-    List<string> rotors = ["ÇRDMPH ĞCUZEÜXJİQIKŞOÖLVNYW!AGTSBF", "NKÜYFBXEQWLHAVTĞÖ'JİUZ GÇORPMSIDŞC", "WOI'SGXUTRAÜVÖĞKZ FMNŞBDYÇQİHPCEJL"];
+    List<string> rotors = ["ÇRDMPH ĞCUZEÜXJİQIKŞOÖLVNYW'AGTSBF", "NKÜYFBXEQWLHAVTĞÖ'JİUZ GÇORPMSIDŞC", "WOI'SGXUTRAÜVÖĞKZ FMNŞBDYÇQİHPCEJL"];
     Rotors rs = new Rotors();
     PlugBoard ps = new PlugBoard();
     bool isChanged = false;

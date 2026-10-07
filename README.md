@@ -25,7 +25,6 @@ A small, customizable Enigma-style cipher machine written in C#. It ships as a s
 - [Customizing the Machine](#customizing-the-machine)
 - [Important Notes and Limitations](#important-notes-and-limitations)
 - [Project Structure](#project-structure)
-- [Building From Source](#building-from-source)
 
 ---
 
