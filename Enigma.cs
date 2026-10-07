@@ -1,14 +1,14 @@
 namespace Enigma;
 
-public class Enigma
+public class EnigmaMachine
 {
-    string default_Alphabet = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜWVXYZ ";
-    List<string> rotors = ["ÇRDMPH ĞCUZEÜXJİIKŞOÖLVNYWAGTSBF", "NKÜYFBXEWLHAVTĞÖJİUZ GÇORPMSIDŞC", "WOISGXUTRAÜVÖĞKZ FMNŞBDYÇİHPCEJL"];
+    string default_Alphabet = "ABCÇDEFGĞHIİJKLMNOÖPQRSŞTUÜWVXYZ '";
+    List<string> rotors = ["ÇRDMPH ĞCUZEÜXJİQIKŞOÖLVNYW!AGTSBF", "NKÜYFBXEQWLHAVTĞÖ'JİUZ GÇORPMSIDŞC", "WOI'SGXUTRAÜVÖĞKZ FMNŞBDYÇQİHPCEJL"];
     Rotors rs = new Rotors();
     PlugBoard ps = new PlugBoard();
     bool isChanged = false;
 
-    public Enigma()
+    public EnigmaMachine()
     {
         setup();
     }
