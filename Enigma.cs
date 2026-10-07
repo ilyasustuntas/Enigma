@@ -3,7 +3,7 @@ namespace Enigma;
 public class Enigma
 {
     string default_Alphabet = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜWVXYZ ";
-    List<string> Rotors = ["ÇRDMPH ĞCUZEÜXJİIKŞOÖLVNYWAGTSBF", "NKÜYFBXEWLHAVTĞÖJİUZ GÇORPMSIDŞC", "WOISGXUTRAÜVÖĞKZ FMNŞBDYÇİHPCEJL"];
+    List<string> rotors = ["ÇRDMPH ĞCUZEÜXJİIKŞOÖLVNYWAGTSBF", "NKÜYFBXEWLHAVTĞÖJİUZ GÇORPMSIDŞC", "WOISGXUTRAÜVÖĞKZ FMNŞBDYÇİHPCEJL"];
     Rotors rs = new Rotors();
     PlugBoard ps = new PlugBoard();
     bool isChanged = false;
@@ -29,7 +29,7 @@ public class Enigma
     {
         rs = new Rotors();
         rs.addAlphabet(default_Alphabet);
-        foreach (string rot in Rotors)
+        foreach (string rot in rotors)
         {
             rs.addRotor(rot);
         }
@@ -42,12 +42,12 @@ public class Enigma
     }
     public void cleanRotors()
     {
-        Rotors.Clear();
+        rotors.Clear();
         isChanged = true;
     }
     public void addRotor(string rotor)
     {
-        Rotors.Add(rotor);
+        rotors.Add(rotor);
         isChanged = true;
     }
     public void cleanPlugboard()

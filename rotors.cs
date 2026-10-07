@@ -1,5 +1,6 @@
 using System;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Enigma
 {
@@ -12,13 +13,14 @@ namespace Enigma
         {
             resetAllRotors();
             Reflector reflector = new Reflector(alphabet);
-            string returntext = "";
+            StringBuilder returntext = new StringBuilder();
 
             for (int i = 0; i < text.Length; i++)
             {
                 string letter = text[i].ToString();
                 if (alphabet.IndexOf(letter) == -1)
                 {
+                    returntext.Append(letter);
                     continue;
                 }
                 string processing_char = letter;
@@ -36,9 +38,9 @@ namespace Enigma
                     processing_char = rot.rotorUnprocess(processing_char);
                 }
                 rotateAllRotors();
-                returntext += processing_char;
+                returntext.Append(processing_char);
             }
-            return returntext;
+            return returntext.ToString();
         }
 
         public void addRotor(string value)
@@ -115,7 +117,7 @@ namespace Enigma
     }
 
 
-    internal class Reflector //abcdef   <--- example
+    internal class Reflector //abcdef   <--- example    note: number of letter in alphabet must be even
                              //fedcba
     {
         string reflector_alphabet = "";
